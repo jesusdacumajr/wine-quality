@@ -1,0 +1,67 @@
+---
+title       : Wine Quality Predictor
+subtitle    : Predicting Expert Ratings of Wine Based On Physiochemical Properties
+author      : Jesus Dacuma
+job         : Coursera - Data Product Developer
+framework   : io2012_wine   # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+--- 
+
+## If Winemakers Could Predict the Future...
+
+- Wine ratings are the standard in grading wine quality.
+
+- Better ratings = Higher sales
+
+- How can winemakers predict how their wines will be rated?
+
+- The Wine Quality Predictor App can predict expert ratings based on a wine's physiochemical properties!
+
+![wine_icon](www/wine_icon.jpg)
+
+---
+
+## An Example Wine (Rated 7/10)
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+source("helpers.R")
+example <- data.frame(training[11,c(1,3,5,6,7,11,12,13)], row.names = NULL)
+appPrediction <- data.frame(appPrediction = predict(fitSVM, example))
+```
+```{r}
+example
+appPrediction
+```
+
+---
+
+## Another Example Wine (Rated 5/10)
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+example <- data.frame(training[75,c(1,3,5,6,7,11,12,13)], row.names = NULL)
+appPrediction <- data.frame(appPrediction = predict(fitSVM, example))
+```
+```{r}
+example
+appPrediction
+```
+
+---
+
+## Why Winemakers Need This
+
+* Fine wine sales will [grow 14-18%][link1]
+
+* Fine wine is projected to sell for over $20 a bottle
+
+* Attaching a wine’s score to its price tag results in [increased sales by 25%][link2]
+
+* High-scoring wines display a higher increase in sales compared to low-scoring wines
+
+* [Shortages in wine grapes][link3] makes creating the right wine more critical
+
+[link1]: http://www.forbes.com/sites/cathyhuyghe/2015/01/21/happening-now-2015-wine-trends-and-predictions-from-silicon-valley-bank/
+[link2]: http://www.academicwino.com/2012/07/how-expert-opinions-influence-consumer.html/
+[link3]: http://www.businessinsider.com/us-wine-grape-shortage-developing-2013-8
